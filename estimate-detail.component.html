@@ -1,0 +1,24 @@
+<tr *ngFor=" let item of Items">
+            <td>
+            <a cart-button [item]="item" action="remove" class="btn btn-default btn-sm">X</a>
+            </td>
+            <td>{{item.itemName}}</td>
+            <td>{{item.rate}}</td>
+            <td>
+            <div class="btn-group">
+
+           <custom-counter [(counter)]="counterValue"></custom-counter>
+
+            </div>
+            </td>
+            <td>${{item.rate*counterValue | number: '.2'}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+          <td colSpan="4" class="text-right">Total</td>
+          <td>${{ items | cartTotal | number: '.2'}}</td>
+      </tr>
+      </tfoot>
+  </table>
+    </div>
